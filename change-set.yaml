@@ -1,0 +1,10 @@
+# we are exectuting this changing the name of the EC2 instances
+Resources:
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-008e1e7f1fcbe9b80 
+      Tags:
+        - Key: "Name"
+          Value: "Change1"
