@@ -1,0 +1,18 @@
+Mappings: 
+  AmiRegionMap: 
+    us-east-1: 
+      "AMI": "ami-04505e74c0741db8d"
+    us-east-2: 
+      "AMI": "ami-0fb653ca2d3203ac1"
+Resources:
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: !FindInMap 
+        - AmiRegionMap
+        - !Ref AWS::Region
+        - AMI
+      Tags:
+        - Key: "Name"
+          Value: "Change1" 
